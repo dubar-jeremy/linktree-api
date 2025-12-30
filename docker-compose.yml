@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:13-bullseye
+    container_name: linktree-db
+    restart: always
+    environment:
+      - POSTGRES_USER=linktree_user
+      - POSTGRES_PASSWORD=linktree_password
+      - POSTGRES_DB=linktree_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_linktree_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_linktree_data:

@@ -1,7 +1,6 @@
 package io.github.dubar_jeremy.linktree_api;
 
 import io.github.dubar_jeremy.linktree_api.config.JpaConfig;
-import io.github.dubar_jeremy.linktree_api.config.Link;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

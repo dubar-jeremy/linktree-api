@@ -1,6 +1,6 @@
-package io.github.dubar_jeremy.linktree_api.config;
+package io.github.dubar_jeremy.linktree_api;
 
-import io.github.dubar_jeremy.linktree_api.Page;
+import io.github.dubar_jeremy.linktree_api.config.JpaConfig;
 import jakarta.persistence.*;
 
 import java.util.UUID;

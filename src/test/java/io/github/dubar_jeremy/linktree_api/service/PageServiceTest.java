@@ -1,6 +1,7 @@
 package io.github.dubar_jeremy.linktree_api.service;
 
 import io.github.dubar_jeremy.linktree_api.model.Page;
+import io.github.dubar_jeremy.linktree_api.provider.SlugProvider;
 import io.github.dubar_jeremy.linktree_api.provider.UuidProvider;
 import io.github.dubar_jeremy.linktree_api.repository.PageRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +29,9 @@ class PageServiceTest {
     @Mock
     private UuidProvider uuidProvider;
 
+    @Mock
+    private SlugProvider slugProvider;
+
     @InjectMocks
     private PageService pageService;
 
@@ -51,6 +55,7 @@ class PageServiceTest {
         assertEquals(testUuid, result.getId());
         assertEquals(TEST_TITLE, result.getTitle());
         assertEquals(TEST_DESCRIPTION, result.getDescription());
-        verify(uuidProvider, times(2)).generate();
+        assertEquals(slugProvider.generate(TEST_TITLE), result.getSlug());
+        verify(uuidProvider, times(1)).generate();
     }
 }

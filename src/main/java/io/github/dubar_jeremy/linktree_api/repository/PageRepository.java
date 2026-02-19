@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface PageRepository extends JpaRepository<Page, UUID> {}
+public interface PageRepository extends JpaRepository<Page, UUID> {
+    boolean existsBySlug(String slug);
+}

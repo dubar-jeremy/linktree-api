@@ -1,5 +1,7 @@
 package io.github.dubar_jeremy.linktree_api.service;
 
+import io.github.dubar_jeremy.linktree_api.exception.SlugAlreadyExistsException;
+import io.github.dubar_jeremy.linktree_api.exception.SlugException;
 import io.github.dubar_jeremy.linktree_api.model.Page;
 import io.github.dubar_jeremy.linktree_api.provider.SlugProvider;
 import io.github.dubar_jeremy.linktree_api.provider.UuidProvider;
@@ -43,7 +45,7 @@ class PageServiceTest {
     }
 
     @Test
-    void createPage_shouldGenerateUuidAndSavePage() {
+    void createPage_shouldGenerateUuidAndSavePage() throws SlugAlreadyExistsException {
         // Arrange
         when(uuidProvider.generate()).thenReturn(testUuid);
         when(pageRepository.save(any(Page.class))).thenAnswer(i -> i.getArgument(0));
